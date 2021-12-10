@@ -19,9 +19,9 @@ Install the composer
 
 ## Database
 	
-Create database and alter '.env' file accordingly
+Update the database details in ‘.env’ to match your local setup
 
-Run the following command or directly import the 'iphonetest.sql' file attached in the repository
+Run the following command or directly import the 'iphonetest.sql' file attached in the repository which has my sample records too
 	
 	php artisan migrate
     php artisan db:seed
