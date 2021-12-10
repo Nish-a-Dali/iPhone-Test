@@ -1,0 +1,27 @@
+[
+  {
+    "achieve_count":1,
+    "order":1,
+    "title": "First Lesson Watched"
+  },
+  {
+    "achieve_count":5,
+    "order":2,
+    "title": "5 Lessons Watched"
+  },
+  {
+    "achieve_count":10,
+    "order":3,
+    "title": "10 Lessons Watched"
+  },
+  {
+    "achieve_count":25,
+    "order":4,
+    "title": "25 Lessons Watched"
+  },
+  {
+    "achieve_count":50,
+    "order":5,
+    "title": "50 Lessons Watched"
+  }
+]

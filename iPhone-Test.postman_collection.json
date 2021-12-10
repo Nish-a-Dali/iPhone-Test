@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "a8f92f6b-1b12-4f62-b7de-e9b2571fdfd7",
+		"name": "iPhone-Test-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LessonWatched",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"lesson_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/api/LessonWatched",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"api",
+						"LessonWatched"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CommentWritten",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"body\":\"Comment 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{end_point}}/api/CommentWritten",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"api",
+						"CommentWritten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserAchievements",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{end_point}}/users/1/achievements",
+					"host": [
+						"{{end_point}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"achievements"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

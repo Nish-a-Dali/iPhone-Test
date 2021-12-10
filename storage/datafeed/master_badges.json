@@ -1,0 +1,18 @@
+[
+  {
+    "achieve_count":0,
+    "title": "Beginner"
+  },
+  {
+    "achieve_count":4,
+    "title": "Intermediate"
+  },
+  {
+    "achieve_count":8,
+    "title": "Advanced"
+  },
+  {
+    "achieve_count":10,
+    "title": "Master"
+  }
+]
