@@ -21,6 +21,7 @@ class AchievementsController extends Controller
                         ->Where('user_id',$user_id)
                         ->orderBy('created_on')
                         ->distinct()->get()->toArray();
+        $unlocked_achieve = $this->final_array($unlocked_achieve,'achievement_name');                        
         // Next Available Achievements
         $next_achieve = $this->nextAvailAchievements($user_id);
         // Badges
@@ -81,7 +82,19 @@ class AchievementsController extends Controller
 
         $nextavail_lesachieve = array_values(collect($nextavail_lesachieve)->sortBy('order')->all());
         $nextavail_comachieve = array_values(collect($nextavail_comachieve)->sortBy('order')->all());
-        return array_values(array_merge($nextavail_lesachieve,$nextavail_comachieve));
+        $arr = array_values(array_merge($nextavail_lesachieve,$nextavail_comachieve));
+        return $this->final_array($arr,'title');
+    }
+
+    // Sorting Array
+    public function final_array($array, $column) {
+        $reference_array = array();
+
+        foreach($array as $key => $row) {
+            $reference_array[$key] = $row->$column;
+        }
+
+        return $reference_array;
     }
 
     // Lesson watched
