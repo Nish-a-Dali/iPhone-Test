@@ -17,6 +17,7 @@ class AchievementsController extends Controller
     {
         $user_id = $user->id;
         $unlocked_achieve = DB::table('userachievements')
+                        ->select('achievement_name')
                         ->Where('user_id',$user_id)
                         ->orderBy('created_on')
                         ->distinct()->get()->toArray();
@@ -70,27 +71,17 @@ class AchievementsController extends Controller
         $lescount = $masterlesson - $countdetails[1]->typecount;
         
         $nextavail_comachieve = DB::table('master_comment_achievements')
-                            ->orderBy('id','desc')
+                            ->select('order','title')
+                            ->orderBy('order','desc')
                             ->distinct()->limit($comcount)->get()->toArray();
         $nextavail_lesachieve = DB::table('master_lesson_achievements')
-                            ->orderBy('id','desc')
+                            ->select('order','title')
+                            ->orderBy('order','desc')
                             ->distinct()->limit($lescount)->get()->toArray();
 
         $nextavail_lesachieve = array_values(collect($nextavail_lesachieve)->sortBy('order')->all());
         $nextavail_comachieve = array_values(collect($nextavail_comachieve)->sortBy('order')->all());
         return array_values(array_merge($nextavail_lesachieve,$nextavail_comachieve));
-    }
-
-    // Sorting Array
-    public function array_sort_by_column($array, $column, $direction = SORT_ASC) {
-        $reference_array = array();
-
-        foreach($array as $key => $row) {
-            $reference_array[$key] = $row->$column;
-        }
-
-        array_multisort($reference_array, $direction, $array);
-        return $reference_array;
     }
 
     // Lesson watched
